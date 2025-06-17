@@ -1,31 +1,68 @@
-const finalImage = 'images/IntroAnimation/OnceWebsiteLoadsUp0090.png';
+const finalImage = 'images/IntroAnimation/IntroAnimation Frame 90.png';
 let doneIntro = false;
 
 window.onload = function () {
     // opening animation
+    var lastTick = (new Date).getTime();
+
     const frameCount = 90;
-    const framePrefix = 'images/IntroAnimation/OnceWebsiteLoadsUp00';
+    const framePrefix = 'images/IntroAnimation/IntroAnimation Frame ';
     const frameExtension = '.png';
     const frameRate = 40;
 
-    let currentFrame = 1;
+    let currentFrame = 0;
     const imgElement = document.getElementById('animated-frame');
 
     function padNumber(n) {
-    return n.toString().padStart(2, '0');
+        return n.toString().padStart(2, '0');
     }
 
-    const interval = setInterval(() => {
-    currentFrame++;
-    if (currentFrame > frameCount) {
-        clearInterval(interval);
-        imgElement.src = finalImage;
-        doneIntro = true;
-    } else {
-        const padded = padNumber(currentFrame);
-        imgElement.src = `${framePrefix}${padded}${frameExtension}`;
+    // const interval = setInterval(() => {
+    //     currentFrame++;
+    //     if (currentFrame > frameCount) {
+    //         clearInterval(interval);
+    //         imgElement.src = finalImage;
+    //         doneIntro = true;
+    //     } else {
+    //         //const padded = padNumber(currentFrame);
+    //         imgElement.src = `${framePrefix}${currentFrame}${frameExtension}`;
+    //         console.log(`${framePrefix}${currentFrame}${frameExtension}`);
+    //     }
+    // }, frameRate);
+
+    var frameInterval = 1000 / 30; // targeting 30 fps
+    var accumulatedTime = 0;
+
+    function tick() {
+        if (doneIntro) {
+            return;
+        }
+
+        var now = (new Date).getTime();
+        var deltaTime = now - lastTick;
+        lastTick = now;
+
+        accumulatedTime += deltaTime;
+
+        if (accumulatedTime >= frameInterval) {
+            accumulatedTime = 0;
+
+            currentFrame++;
+            if (currentFrame > frameCount) {
+                //clearInterval(interval);
+                imgElement.src = finalImage;
+                doneIntro = true;
+                return;
+            } else {
+                imgElement.src = `${framePrefix}${currentFrame}${frameExtension}`;
+                console.log(`${framePrefix}${currentFrame}${frameExtension}`);
+            }
+        }
+
+        window.requestAnimationFrame(tick);
     }
-    }, frameRate);
+
+    tick()
 }
 
 document.addEventListener('DOMContentLoaded', function () {

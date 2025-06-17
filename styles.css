@@ -2,6 +2,12 @@ html, body {
     overflow: hidden;
 }
 
+body {
+    background-image: url('images/YT_Website_Background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .logo-and-icons {
     position: fixed;
     top: -5%;
@@ -34,18 +40,6 @@ html, body {
     height: 100%;
 }
 
-.rounded-box {
-    position: fixed;
-    left: 30%;
-    background-color: #5878bc;
-    border-radius: 20px;
-    width: 25%;
-    height: 5%;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-}
-
 .rounded-box-large {
     position: fixed;
     top: 30%;
@@ -56,5 +50,12 @@ html, body {
     height: 45%;
     color: white;
     padding: 10px;
+}
+
+.options {
+    position: fixed;
+    width: 25%;
+    height: auto;
+    left: 30%;
     cursor: pointer;
 }
