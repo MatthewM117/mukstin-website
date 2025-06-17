@@ -54,8 +54,8 @@ body {
 
 .options {
     position: fixed;
-    width: 25%;
+    width: 30%;
     height: auto;
-    left: 30%;
+    left: 28%;
     cursor: pointer;
 }

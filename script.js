@@ -67,13 +67,14 @@ window.onload = function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     // image hovering
-    const box = document.getElementById('roundbox1');
-    const box2 = document.getElementById('roundbox2');
+    const box2 = document.getElementById('portfolio');
+    const box = document.getElementById('contact-me');
     const img = document.getElementById('animated-frame');
 
     box.addEventListener('mouseenter', () => {
         if (doneIntro) {
-            img.src = 'images/pointing1.png'; // hover image
+            img.src = 'images/pointing2.png'; // hover image
+            box.src = 'images/Contact_Me_Option_Hovered_Over.webp';
         }
         
     });
@@ -81,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     box.addEventListener('mouseleave', () => {
         if (doneIntro) {
             img.src = finalImage; // original
+            box.src = 'images/Contact_Me_Option.webp';
         }
     });
 
@@ -92,7 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     box2.addEventListener('mouseenter', () => {
         if (doneIntro) {
-            img.src = 'images/pointing2.png'; // hover image
+            img.src = 'images/pointing1.png'; // hover image
+            box2.src = 'images/Portfolio_Option_hoveredover.webp';
         }
         
     });
@@ -100,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     box2.addEventListener('mouseleave', () => {
         if (doneIntro) {
             img.src = finalImage; // original
+            box2.src = 'images/Portfolio_Option.webp';
         }
     });
 
