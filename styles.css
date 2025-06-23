@@ -52,4 +52,6 @@ body {
     position: fixed;
     top: 10%;
     left: 65%;
+    width: 25%;
+    height: auto;
 }

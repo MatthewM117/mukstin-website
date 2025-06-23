@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     box.addEventListener('mouseup', () => {
         if (doneIntro) {
-            window.location.href = "https://www.youtube.com/@Mukstin";
+            window.location.href = "https://contactmukstin.carrd.co/";
         }
     });
 
